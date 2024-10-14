@@ -60,3 +60,14 @@ Create the name of the service account to use
 {{- default "default" .Values.serviceAccount.name }}
 {{- end }}
 {{- end }}
+
+{{/*
+Create volume and mounts
+*/}}
+{{- define "pgcat.extraVolumes" -}}
+{{ tpl (default "" .Values.extraVolumes) . }}
+{{- end -}}
+
+{{- define "pgcat.extraVolumeMounts" -}}
+{{ tpl (default "" .Values.extraVolumeMounts) . }}
+{{- end -}}
